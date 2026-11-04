@@ -10,9 +10,14 @@
 <body>
     <%- include('../partials/navbar') %>
         <h1>all-categories</h1>
+        <form action="/excercat/new" method="get"><button>Create new Category</button></form>
         <% for(let c of categories){ %>
             <p>
-                <%= c.name %>
+                <%= c.name %> | <form action="/excercat/edit/<%= c.id %>" method="get"><button>Edit Category</button>
+                    </form> |
+                    <form action="/excercat/delete/<%= c.id %>?_method=DELETE" method="post"><button>Delete
+                            Category</button></form>
+                    </form>
             </p>
             <% } %>
 </body>
