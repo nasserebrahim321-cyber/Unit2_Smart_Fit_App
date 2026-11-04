@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>all-excercises</title>
+</head>
+
+<body>
+    <%- include('../partials/navbar') %>
+        <h1>all-excercises</h1>
+        <form method="get" action="/excer/new"><button>Create New Excercise</button></form>
+        <table>
+            <tr>
+                <th>Excercise Name</th>
+                <th>guidingGIF</th>
+                <th>instructions</th>
+                <th>category</th>
+                <th>Edit/Delete</th>
+            </tr>
+            <% for(let e of excercises){ %>
+                <tr>
+                    <td>
+                        <%= e.excerciseName %>
+                    </td>
+                    <td><img src="<%= e.guidingGIF %>" alt="<%= e.excerciseName %>_guiding_gif"></td>
+                    <td>
+                        <%= e.instructions %>
+                    </td>
+                    <td>
+                        <%= e.category.name %>
+                    </td>
+                    <td>
+                        <form action="/excer/edit/<%= e.id %>" method="get"><button>Edit</button></form>
+                        <form action="/excer/delete/<%= e.id %>?_method=DELETE" method="post"><button>Delete</button>
+                        </form>
+                    </td>
+                </tr>
+                <% } %>
+
+        </table>
+</body>
+
+</html>

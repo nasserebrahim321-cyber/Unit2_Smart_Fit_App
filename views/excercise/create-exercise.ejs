@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>create-exercise</title>
+</head>
+
+<body>
+    <h1>create exercise</h1>
+
+    <form action="/excer/new" method="post">
+        <label for="excerciseName">Excercise Name :</label>
+        <input type="text" name="excerciseName" id="excerciseName" required><br>
+
+        <label for="guidingGIF">Please add the url of guiding GIF for the excersice here : </label>
+        <input type="url" name="guidingGIF" id="guidingGIF"><br>
+
+        <label for="instructions">Instructions :</label>
+        <input type="text" name="instructions" id="instructions"><br>
+
+        <label for="category">Excercise Category :</label>
+        <select name="category" id="category">
+            <!-- Hidden placeholder that can't be reselected -->
+            <option value="" disabled selected hidden>Select an category</option>
+            <% for(let c of categories) {%>
+                <option value="<%= c.id %>">
+                    <%= c.name %>
+                </option>
+                <% } %>
+        </select><br>
+
+        <button>Create Excersice</button>
+    </form>
+</body>
+
+</html>
