@@ -41,7 +41,7 @@ router.put('/edit/:id', async (req, res) => {
     }
 
     await Excercise.findByIdAndUpdate(req.params.id, updatedExcercise)
-    res.redirect('/excer')
+    res.redirect('/excer');
 })
 
 router.delete('/delete/:id', async (req, res) => {
