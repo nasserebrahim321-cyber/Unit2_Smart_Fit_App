@@ -58,6 +58,8 @@
                         <form action="/workplan/<%= w.id %>/delete?_method=DELETE" method="post">
                             <button>Delete WorkoutPlan</button>
                         </form>
+                        <form action="/worksession/<%= w.id %>/begin" method="get"><button>Begin Training!</button>
+                        </form>
                     </td>
                 </tr>
                 <%}%>
