@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create-workout-plan</title>
+</head>
+
+<body>
+    <h1>Create-workout-plan</h1>
+    <form action="/workplan/new" method="post">
+        <label for="planName">Plan Name: </label>
+        <input type="text" name="planName" id="planName">
+        <br>
+        <br>
+        <label for="exercises">Excercises for the workout plan</label>
+        <br>
+        <% for(let e of excercises){ %>
+            <input type="checkbox" name="exercises" id="<%=e.excerciseName%>" class="exercises" value="<%=e.id%>">
+            <label for="<%=e.excerciseName%>">
+                <%=e.excerciseName%>
+            </label>
+            <%}%>
+                <br>
+                <br>
+                <label for="daysToExcercise"> Select The Days to be excercised: </label>
+                <br>
+                <% for(let d in days){ %>
+                    <input type="checkbox" name="days" id="<%= days[d] %>" value="<%= days[d] %>" class="days"><label
+                        for="<%= days[d] %>">
+                        <%= days[d] %>
+                    </label>
+                    <%}%>
+                        <br>
+                        <br>
+                        <button>Create Workout Plan</button>
+    </form>
+</body>
+
+</html>

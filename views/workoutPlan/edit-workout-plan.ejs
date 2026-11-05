@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>edit-workout-plan</title>
+</head>
+
+<body>
+    <h1>Edit-Workout-Plan</h1>
+    <form action="/workplan/<%= workoutPlan.id %>/edit?_method=PUT" method="post">
+        <label for="planName">Plan Name: </label>
+        <input type="text" name="planName" id="planName" value="<%= workoutPlan.planName %>">
+        <br>
+        <br>
+        <label for="exercises">Excercises for the workout plan</label>
+        <br>
+        <% for(let e of excercises){ %>
+            <input type="checkbox" name="exercises" id="<%=e.excerciseName%>" class="exercises" value="<%=e.id%>" <%
+                for(let ewp of workoutPlan.exercises){ %>
+            <%if(ewp.id===e.id) { %>
+                checked
+                <%}%>
+                    <%}%>>
+                        <label for="<%=e.excerciseName%>">
+                            <%=e.excerciseName%>
+                        </label>
+                        <%}%>
+                            <br>
+                            <br>
+                            <label for="daysToExcercise"> Select The Days to be excercised: </label>
+                            <br>
+                            <% for(let d in days){ %>
+                                <input type="checkbox" name="days" id="<%= days[d] %>" value="<%= days[d] %>"
+                                    class="days" <%for(let dwp of workoutPlan.daysToExcercise){%>
+                                <% if(dwp===days[d]) {%>
+                                    checked
+                                    <%}%>
+                                        <%}%>>
+                                            <label for="<%= days[d] %>">
+                                                <%= days[d] %>
+                                            </label>
+                                            <%}%>
+                                                <br>
+                                                <br>
+                                                <button>Edit workoutPlan</button>
+    </form>
+
+</body>
+
+</html>

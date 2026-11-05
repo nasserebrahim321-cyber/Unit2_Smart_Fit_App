@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>all-workout-plan</title>
+</head>
+
+<body>
+    <%- include('../partials/navbar') %>
+        <h1>All Workout Plan</h1>
+        <form action="/workplan/new" method="get"><button>Create new Workout Plan</button></form>
+
+        <table>
+            <tr>
+                <th>Name Of the Workout Plan</th>
+                <th>exercises</th>
+                <th>daysToExcercise</th>
+                <th>Assigned To</th>
+            </tr>
+            <% for(let w of workoutPlans) {%>
+                <tr>
+                    <td>
+                        <%= w.planName%>
+                    </td>
+                    <td>
+                        <ul>
+                            <% for(let e of w.exercises){ %>
+
+                                <li>
+                                    <%=e.excerciseName%>
+                                </li>
+
+                                <%}%>
+                        </ul>
+                    </td>
+                    <td>
+                        <ul>
+                            <% for(let d of w.daysToExcercise) {%>
+                                <li>
+                                    <%= d %>
+                                </li>
+                                <%}%>
+                        </ul>
+                    </td>
+                    <td>
+                        <% for(let u of w.assignedTo){ %>
+                            <li>
+                                <%= u.username %>
+                            </li>
+                            <%}%>
+                    </td>
+                    <td>
+                        <form action="/workplan/<%= w.id %>/edit" method="get">
+                            <button>Edit WorkoutPlan</button>
+                        </form>
+                        <form action="/workplan/<%= w.id %>/delete?_method=DELETE" method="post">
+                            <button>Delete WorkoutPlan</button>
+                        </form>
+                    </td>
+                </tr>
+                <%}%>
+        </table>
+</body>
+
+</html>
