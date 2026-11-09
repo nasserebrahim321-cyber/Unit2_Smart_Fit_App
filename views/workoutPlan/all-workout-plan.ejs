@@ -4,66 +4,75 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
     <title>all-workout-plan</title>
 </head>
 
 <body>
-    <%- include('../partials/navbar') %>
-        <h1>All Workout Plan</h1>
-        <form action="/workplan/new" method="get"><button>Create new Workout Plan</button></form>
+    <div id="content-container">
+        <div class="nav-container">
+            <%- include('../partials/navbar') %>
+        </div>
+        <div class="main-container">
 
-        <table>
-            <tr>
-                <th>Name Of the Workout Plan</th>
-                <th>exercises</th>
-                <th>daysToExcercise</th>
-                <th>Assigned To</th>
-            </tr>
-            <% for(let w of workoutPlans) {%>
+            <form action="/workplan/new" method="get"><button class="create-new-item">Create new Workout Plan</button>
+            </form>
+            <h1>All Workout Plan</h1>
+
+            <table>
                 <tr>
-                    <td>
-                        <%= w.planName%>
-                    </td>
-                    <td>
-                        <ul>
-                            <% for(let e of w.exercises){ %>
-
-                                <li>
-                                    <%=e.excerciseName%>
-                                </li>
-
-                                <%}%>
-                        </ul>
-                    </td>
-                    <td>
-                        <ul>
-                            <% for(let d of w.daysToExcercise) {%>
-                                <li>
-                                    <%= d %>
-                                </li>
-                                <%}%>
-                        </ul>
-                    </td>
-                    <td>
-                        <% for(let u of w.assignedTo){ %>
-                            <li>
-                                <%= u.username %>
-                            </li>
-                            <%}%>
-                    </td>
-                    <td>
-                        <form action="/workplan/<%= w.id %>/edit" method="get">
-                            <button>Edit WorkoutPlan</button>
-                        </form>
-                        <form action="/workplan/<%= w.id %>/delete?_method=DELETE" method="post">
-                            <button>Delete WorkoutPlan</button>
-                        </form>
-                        <form action="/worksession/<%= w.id %>/begin" method="get"><button>Begin Training!</button>
-                        </form>
-                    </td>
+                    <th>Name Of the Workout Plan</th>
+                    <th>exercises</th>
+                    <th>daysToExcercise</th>
+                    <th>Assigned To</th>
                 </tr>
-                <%}%>
-        </table>
+                <% for(let w of workoutPlans) {%>
+                    <tr>
+                        <td>
+                            <%= w.planName%>
+                        </td>
+                        <td>
+                            <ul>
+                                <% for(let e of w.exercises){ %>
+
+                                    <li>
+                                        <%=e.excerciseName%>
+                                    </li>
+
+                                    <%}%>
+                            </ul>
+                        </td>
+                        <td>
+                            <ul>
+                                <% for(let d of w.daysToExcercise) {%>
+                                    <li>
+                                        <%= d %>
+                                    </li>
+                                    <%}%>
+                            </ul>
+                        </td>
+                        <td>
+                            <% for(let u of w.assignedTo){ %>
+                                <li>
+                                    <%= u.username %>
+                                </li>
+                                <%}%>
+                        </td>
+                        <td>
+                            <form action="/workplan/<%= w.id %>/edit" method="get">
+                                <button>Edit WorkoutPlan</button>
+                            </form>
+                            <form action="/workplan/<%= w.id %>/delete?_method=DELETE" method="post">
+                                <button class="delete">Delete WorkoutPlan</button>
+                            </form>
+                            <form action="/worksession/<%= w.id %>/begin" method="get"><button>Begin Training!</button>
+                            </form>
+                        </td>
+                    </tr>
+                    <%}%>
+            </table>
+        </div>
+    </div>
 </body>
 
 </html>
