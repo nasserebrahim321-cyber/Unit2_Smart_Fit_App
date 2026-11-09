@@ -1,7 +1,73 @@
-nav {
-    background-color: linear-gradient(to bottom, rgb(0, 0, 180, 0.5), rgb(142, 146, 239, 1));
+* {
+    box-sizing: border-box;
 }
 
 body {
-    background-color: whitesmoke;
+    /* background-color: whitesmoke; */
+    height: 100vh;
+    margin: 0;
+}
+
+#content-container {
+    display: grid;
+    grid-template-areas: "menu content";
+    grid-template-columns: 1fr 4fr;
+    gap: 3px;
+    padding: 5px;
+}
+
+nav {
+    padding: 10%;
+    background: linear-gradient(to right, rgb(0, 0, 180, 1), rgba(50, 60, 253, 0.5));
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 50px;
+    padding-left: 10px;
+    border-radius: 15px;
+}
+
+.nav-container {
+    grid-area: menu;
+    height: 100%;
+}
+
+.img_icon {
+    width: 25px;
+    height: 25px;
+    color: white;
+}
+
+nav a {
+    color: white;
+    font-size: larger;
+}
+
+
+.main-container {
+    /* margin-left: auto; */
+    display: flex;
+    grid-area: content;
+    margin-left: 10px;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+form {
+    background: url("../images/bckground-form.png");
+    background-size: cover;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 5%;
+    border-radius: 5px;
+}
+
+form button {
+    width: 100px;
+    height: 35px;
+    border-radius: 15px;
+
 }

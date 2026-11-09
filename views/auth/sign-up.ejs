@@ -1,21 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Sign Up</title>
-  </head>
-  <body>
-    <%- include('../partials/navbar') %>
-    <h1>Create a new account!</h1>
-    <form action="/auth/sign-up" method="post">
-      <label for="username">Username:</label>
-      <input type="text" name="username" id="username" />
-      <label for="password">Password:</label>
-      <input type="password" name="password" id="password" />
-      <label for="confirmPassword">Confirm Password:</label>
-      <input type="password" name="confirmPassword" id="confirmPassword" />
-      <button type="submit">Sign up</button>
-    </form>
-  </body>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="stylesheet" href="/css/style.css">
+  <title>Sign Up</title>
+</head>
+
+<body>
+  <div id="content-container">
+    <div class="nav-container">
+      <%- include('../partials/navbar') %>
+    </div>
+    <div class="main-container">
+      <form action="/auth/sign-up" method="post">
+        <h1>Create a new account!</h1>
+        <div>
+          <label for="username">Username:</label>
+          <input type="text" name="username" id="username" />
+        </div>
+        <div>
+          <label for="password">Password:</label>
+          <input type="password" name="password" id="password" />
+        </div>
+        <div>
+          <label for="confirmPassword">Confirm Password:</label>
+          <input type="password" name="confirmPassword" id="confirmPassword" />
+        </div>
+        <div>
+          <button type="submit">Sign up</button>
+        </div>
+      </form>
+    </div>
+  </div>
+</body>
+
 </html>

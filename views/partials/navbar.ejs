@@ -1,15 +1,15 @@
 <nav>
 
-    <a href="/">Homepage</a>
+    <a href="/"><img src="/icons/homepage.png" alt="homepage_icon" class="img_icon">Homepage</a>
     <% if (user){ %>
-        <a href="/auth/sign-out">Logout</a>
-        <a href="/excer">All-Excercises</a>
-        <a href="/excercat">All-Categories</a>
-        <a href="/workplan">All-workout-plan</a>
+        <a href="/excer"><img src="/icons/exercise.png" alt="exercise_icon" class="img_icon">All-Excercises</a>
+        <a href="/excercat"><img src="/icons/category.png" alt="category_icon" class="img_icon">All-Categories</a>
+        <a href="/workplan"><img src="/icons/wp.png" alt="workoutPlan_icon" class="img_icon">All-workout-plan</a>
+        <a href="/auth/sign-out"> <img src="/icons/logout.png" alt="logout_icon" class="img_icon"> Logout</a>
 
         <% } else{ %>
-            <a href="/auth/sign-up">Sign up</a>
-            <a href="/auth/sign-in">Login</a>
+            <a href="/auth/sign-up"><img src="/icons/signup.png" alt="sign-up_icon" class="img_icon">Sign up</a>
+            <a href="/auth/sign-in"><img src="/icons/login.png" alt="login_icon" class="img_icon">Login</a>
 
             <% } %>
 

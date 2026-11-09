@@ -4,22 +4,33 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/style.css">
     <title>all-categories</title>
 </head>
 
 <body>
-    <%- include('../partials/navbar') %>
-        <h1>all-categories</h1>
-        <form action="/excercat/new" method="get"><button>Create new Category</button></form>
-        <% for(let c of categories){ %>
-            <p>
-                <%= c.name %> | <form action="/excercat/edit/<%= c.id %>" method="get"><button>Edit Category</button>
-                    </form> |
-                    <form action="/excercat/delete/<%= c.id %>?_method=DELETE" method="post"><button>Delete
-                            Category</button></form>
-                    </form>
-            </p>
-            <% } %>
+    <div id="content-container">
+        <div class="nav-container">
+            <%- include('../partials/navbar') %>
+        </div>
+        <div class="main-container">
+
+            <h1>all-categories</h1>
+            <form action="/excercat/new" method="get"><button>Create new Category</button></form>
+            <% for(let c of categories){ %>
+                <p>
+                    <%= c.name %> | <form action="/excercat/edit/<%= c.id %>" method="get"><button>Edit
+                                Category</button>
+                        </form> |
+                        <form action="/excercat/delete/<%= c.id %>?_method=DELETE" method="post"><button>Delete
+                                Category</button></form>
+                        </form>
+                </p>
+                <% } %>
+        </div>
+
+    </div>
+
 </body>
 
 </html>
