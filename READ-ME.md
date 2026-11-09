@@ -2,7 +2,7 @@
 Smart Fitness App
 
 ## Overview
-
+the app will help
 
 ## Screenshots
 
