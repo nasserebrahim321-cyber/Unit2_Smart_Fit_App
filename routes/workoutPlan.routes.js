@@ -3,7 +3,6 @@ const WorkoutPlan = require('../models/WorkoutPlan')
 const Excercise = require('../models/Excercise')
 const isSignedIn = require('../middleware/is-signed-in');
 
-
 router.get('/', isSignedIn, async (req, res) => {
     const all_Workout_plan = await WorkoutPlan.find().populate(['exercises', 'assignedTo']);
     res.render('workoutPlan/all-workout-plan.ejs', { workoutPlans: all_Workout_plan });
@@ -52,7 +51,5 @@ router.put('/:id/edit', isSignedIn, async (req, res) => {
     })
     res.redirect('/workplan')
 })
-
-
 
 module.exports = router

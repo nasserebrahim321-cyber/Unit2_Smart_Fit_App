@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Begin Training</title>
 </head>
+
 <body>
     <h1>Begin Training</h1>
-    
-    
+    <form method="post" action="/worksession/<%= workoutPlan.id %>/complete"></form>
+    <% for(let e in exercises) {%>
+        <p>
+            <%= exercises[e].excercise.excerciseName %>
+        </p>
+        <p><img src="<%= exercises[e].excercise.guidingGIF %>"
+                alt="<%= exercises[e].excercise.excerciseName %>_guidingGIF"></p>
+        <input type="checkbox" name="exerciseCheck" id="<%= exercises[e].excercise.excerciseName %>"
+            value="<%= exercises[e].excercise.id %>">
+        <label for="<%= exercises[e].excercise.excerciseName %>"> Finished Exersice</label>
+        <br>
+        <label for="setNumber">Enter the desired number of sets in this Exersice :</label>
+        <input type="number" name="setNumber" id="setNumber">
+        <br>
+        <label for="repNumber">Enter the desired number of reps in this Exersice :</label>
+        <input type="number" name="repNumber" id="repNumber">
+        <br>
+        <label for="weight">Enter the desired weight for this Exersice :</label>
+        <input type="number" name="weight" id="weight">
+        <br>
+
+        <p>↓↓↓↓ NEXT EXCERCISE ↓↓↓↓</p>
+        <br>
+        <span name:"startedAt"></span>
+        <%}%>
+            <button>Complete Training</button>
+            </form>
+
 </body>
+
 </html>
